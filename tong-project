@@ -1,0 +1,43 @@
+#통아저씨 프로젝트
+import random   #랜덤갑 지정
+
+def game():     #게임 함수 지정
+    print("남은 수는 %s 입니다" % h)  #남은 수 알려주기
+a = random.random()*10 + 1           #랜덤수 생성
+a = int(a)                           #랜덤값 숫자로 바꿔주기
+
+d = []                                #빈 리스트
+c = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]   #한만큼 알려주는 리스트
+
+while True:                            #무한반복
+    print("1부터 10가지 중에 선택하세요") #선택 받을 수
+    
+    b = input()                        #입력 받을 수
+    # b 값이 int인지 체크 하는 과정 필요
+    
+    try:                                #오류일 경우
+        h = c[:]                        #리스트에서 세기
+        b = int(b)                      #b값을 숫자로 바꾸기
+        if a == b:                      #a와 b가 같을 경우
+            print("당첨")               #당첨 발표
+            break                       #끝내기
+
+        elif b == d:                   #b가 d와 같을경우
+            print("이미 쓴 숫자 입니다.") #이미 쓴 숫자입니다 발표
+        elif b == 0:                   #b가 0일 경우
+            print(a)                   #a프린트
+
+        else:                          #아닐 경우
+            print("꽝")                #꽝 출력
+            c.remove(b)                #입력한 수 빼기
+            h = c[:]                   #h를 c리스트와 같게         
+        #except ValueError: 
+            #pass
+            #print("남은 수는 %s 입니다" %  h)
+            game()                     #게임 함수 출력
+            d.insert(len(d)+1, b)      #d리스트에 쓴 수 입력
+        
+    except ValueError:                #value에러가 나면
+        print("숫자만 넣으세요")       #숫자만 너으세요 출력
+        #print("남은 수는 %s 입니다" %  h)
+        game()                          #게임 함수 출력
