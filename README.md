@@ -1,2 +1,2 @@
 # python-study
-python study project 
+python study project with turtorial
